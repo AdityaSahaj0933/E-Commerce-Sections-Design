@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahaj ONDC | Home</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #0056d2;
+      --accent-color: #ff8533;
+      --light-bg: #f8f9fa;
+      --dark-text: #333333;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #ffffff;
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .search-input {
+      border-radius: 25px 0 0 25px;
+      border: 2px solid #0056d2;
+      border-right: none;
+      padding-left: 20px;
+    }
+
+    .search-btn {
+      border-radius: 0 25px 25px 0;
+      border: 2px solid #0056d2;
+      background-color: #0056d2;
+      color: white;
+      font-weight: 600;
+    }
+
+    .search-btn:hover {
+      background-color: #0044aa;
+      border-color: #0044aa;
+    }
+
+    /* Section Styling */
+    .section-title {
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 8px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    /* Shared Scroll Button Styles */
+    .scroll-section {
+      position: relative;
+      padding: 0 30px;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: white;
+      color: var(--primary-color);
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-btn:hover {
+      background: var(--primary-color);
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 86, 210, 0.3);
+    }
+
+    .scroll-btn.left {
+      left: 0;
+    }
+
+    .scroll-btn.right {
+      right: 0;
+    }
+
+    /* Product Offers & Deals */
+    .product-flex-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+
+    .product-flex-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-card {
+      flex: 0 0 260px;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      padding: 15px;
+      background-color: var(--light-bg);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: var(--accent-color);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    .product-card .card-body {
+      padding: 15px;
+    }
+
+    .product-card h6 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      overflow: hidden;
+    }
+
+    .product-card .price {
+      font-weight: 700;
+      color: #28a745;
+      font-size: 1.1rem;
+    }
+
+    .product-card .old-price {
+      color: #6c757d;
+      text-decoration: line-through;
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+
+    /* Brands Section */
+    .brands-flex-container {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 15px 5px;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+
+    .brands-flex-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .brand-card-container {
+      text-align: center;
+      flex: 0 0 auto;
+      width: 90px;
+    }
+
+    .brand-card {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 1px solid #eaeaea;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-color);
+    }
+
+    .brand-card img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .brand-card-container small {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* New Arrivals, Best Selling, Discount Stores */
+    .new-arrivals-container,
+    .best-selling-container,
+    .discount-stores-container {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 15px 5px;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+
+    .new-arrivals-container::-webkit-scrollbar,
+    .best-selling-container::-webkit-scrollbar,
+    .discount-stores-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-new-arrival-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+
+    /* Store Cards */
+    .store-card {
+      flex: 0 0 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .store-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .store-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .store-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 30px 10px 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .scroll-section {
+        padding: 0 15px;
+      }
+      
+      .scroll-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+      
+      .product-card {
+        flex: 0 0 220px;
+      }
+      
+      .store-card {
+        flex: 0 0 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
+    <div class="container">
+      <a class="navbar-brand" href="#">Sahaj Bazaar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form class="d-flex mx-auto my-2 my-lg-0" style="width: 100%; max-width: 500px;">
+          <input class="form-control search-input" type="search" placeholder="Search for products, brands and more"
+            aria-label="Search">
+          <button class="btn search-btn" type="submit">
+            Search
+          </button>
+        </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-person me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="bi bi-cart3 me-1"></i>Cart
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+
+    <!-- Product Offers & Deals Section -->
+    <section class="py-4">
+      <h5 class="section-title">Product Offers & Deals</h5>
+      <div class="scroll-section">
+        <button class="scroll-btn left" id="ProductOfferScrollLeft"><i class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn right" id="ProductOfferScrollRight"><i class="bi bi-chevron-right"></i></button>
+        <div class="product-flex-container py-2" id="ProductOfferContainer">
+          <div class="product-card">
+            <span class="product-tag">25% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone"
+              class="product-img" />
+            <div class="card-body">
+              <h6>Samsung Galaxy M14 5G</h6>
+              <p class="price mb-1">
+                ₹12,999
+                <span class="old-price">₹16,999</span>
+              </p>
+              <small class="text-muted">25% off • Free delivery</small>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <span class="product-tag">20% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop" class="product-img" />
+            <div class="card-body">
+              <h6>HP 15s Ryzen 5 Laptop</h6>
+              <p class="price mb-1">
+                ₹42,999
+                <span class="old-price">₹52,999</span>
+              </p>
+              <small class="text-muted">20% off • EMI available</small>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <span class="product-tag">68% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones"
+              class="product-img" />
+            <div class="card-body">
+              <h6>boAt Rockerz 450</h6>
+              <p class="price mb-1">
+                ₹1,299
+                <span class="old-price">₹3,999</span>
+              </p>
+              <small class="text-muted">68% off • Best seller</small>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <span class="product-tag">35% OFF</span>
+            <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch" class="product-img" />
+            <div class="card-body">
+              <h6>Noise ColorFit Pro 4</h6>
+              <p class="price mb-1">
+                ₹3,999
+                <span class="old-price">₹6,999</span>
+              </p>
+              <small class="text-muted">35% off • Limited stock</small>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <span class="product-tag">40% OFF</span>
+            <img src="https://images.pexels.com/photos/30670959/pexels-photo-30670959.jpeg" alt="Camera" class="product-img" />
+            <div class="card-body">
+              <h6>Canon EOS 1500D</h6>
+              <p class="price mb-1">
+                ₹32,999
+                <span class="old-price">₹54,999</span>
+              </p>
+              <small class="text-muted">40% off • Free accessories</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Stores Section -->
+    <section class="py-4">
+      <h5 class="section-title">Brand Stores</h5>
+      <div class="scroll-section">
+        <button class="scroll-btn left" id="brandScrollLeft"><i class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn right" id="brandScrollRight"><i class="bi bi-chevron-right"></i></button>
+        <div class="brands-flex-container" id="brandScroll">
+          <!-- Apple -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" />
+            </div>
+            <small>Apple</small>
+          </div>
+
+          <!-- Dell -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell" />
+            </div>
+            <small>Dell</small>
+          </div>
+
+          <!-- Sony -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony" />
+            </div>
+            <small>Sony</small>
+          </div>
+
+          <!-- Nike -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" />
+            </div>
+            <small>Nike</small>
+          </div>
+
+          <!-- Adidas -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas" />
+            </div>
+            <small>Adidas</small>
+          </div>
+
+          <!-- Microsoft -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+                alt="Microsoft" />
+            </div>
+            <small>Microsoft</small>
+          </div>
+
+          <!-- Intel -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg"
+                alt="Intel" />
+            </div>
+            <small>Intel</small>
+          </div>
+
+          <!-- Amazon -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />
+            </div>
+            <small>Amazon</small>
+          </div>
+
+          <!-- Google -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
+            </div>
+            <small>Google</small>
+          </div>
+
+          <!-- HP -->
+          <div class="brand-card-container">
+            <div class="brand-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/HP_New_Logo_2D.svg" alt="HP" />
+            </div>
+            <small>HP</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals & Latest Launch Section -->
+    <section class="py-4">
+      <h5 class="section-title">New Arrivals & Latest Launch</h5>
+      <div class="scroll-section">
+        <button class="scroll-btn left" id="scrollLeft"><i class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn right" id="scrollRight"><i class="bi bi-chevron-right"></i></button>
+        <div class="new-arrivals-container" id="productScroll">
+          <div class="product-card">
+            <div class="product-new-arrival-tag">Latest Launch</div>
+            <img src="https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg" alt="Smartwatch" class="product-img" />
+            <div class="card-body">
+              <h6>Noise ColorFit Pulse 3</h6>
+              <p class="price mb-0">₹2,499</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-new-arrival-tag">New Arrival</div>
+            <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="T-shirt" class="product-img" />
+            <div class="card-body">
+              <h6>Men's Cotton T-Shirt</h6>
+              <p class="price mb-0">₹499</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-new-arrival-tag">New Arrival</div>
+            <img src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg" alt="Perfume" class="product-img" />
+            <div class="card-body">
+              <h6>Skinn by Titan Raw</h6>
+              <p class="price mb-0">₹1,199</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-new-arrival-tag">New Arrival</div>
+            <img src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg" alt="Cookware Set" class="product-img" />
+            <div class="card-body">
+              <h6>Prestige Cookware Set</h6>
+              <p class="price mb-0">₹2,899</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-new-arrival-tag">New Arrival</div>
+            <img src="https://images.pexels.com/photos/19090/pexels-photo.jpg" alt="Shoes" class="product-img" />
+            <div class="card-body">
+              <h6>Adidas Sports Shoes</h6>
+              <p class="price mb-0">₹3,499</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Selling Section -->
+    <section class="py-4">
+      <h5 class="section-title">Best Selling</h5>
+      <div class="scroll-section">
+        <button class="scroll-btn left" id="bestScrollLeft"><i class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn right" id="bestScrollRight"><i class="bi bi-chevron-right"></i></button>
+        <div class="best-selling-container" id="bestSellingScroll">
+          <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone" class="product-img" />
+            <div class="card-body">
+              <h6>Samsung Galaxy 5G</h6>
+              <p class="price mb-0">₹12,999</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop" class="product-img" />
+            <div class="card-body">
+              <h6>HP 15s Ryzen 5 Laptop</h6>
+              <p class="price mb-0">₹42,999</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones" class="product-img" />
+            <div class="card-body">
+              <h6>boAt Rockerz 450</h6>
+              <p class="price mb-0">₹1,299</p>
+            </div>
+          </div>
+          <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch" class="product-img" />
+            <div class="card-body">
+              <h6>Noise ColorFit Pro 4</h6>
+              <p class="price mb-0">₹3,999</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61Bv-xGyaSL._SL1500_.jpg" alt="Camera" class="product-img" />
+            <div class="card-body">
+              <h6>Canon EOS 1500D</h6>
+              <p class="price mb-0">₹32,999</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discount Stores Section -->
+    <section class="py-4">
+      <h5 class="section-title">Discount Stores</h5>
+      <div class="scroll-section">
+        <button class="scroll-btn left" id="DiscountStoreScrollLeft"><i class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn right" id="DiscountStoreScrollRight"><i class="bi bi-chevron-right"></i></button>
+        <div class="discount-stores-container" id="DiscountStoreContainer">
+          <div class="store-card">
+            <div class="store-name">Clothing Store</div>
+            <img
+              src="https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg"
+              alt="Clothing Store">
+          </div>
+          <div class="store-card">
+            <div class="store-name">Electronics Store</div>
+            <img
+              src="https://images.pexels.com/photos/3619918/pexels-photo-3619918.jpeg"
+              alt="Electronics Store">
+          </div>
+          <div class="store-card">
+            <div class="store-name">Food Store</div>
+            <img
+              src="https://images.pexels.com/photos/30688912/pexels-photo-30688912.jpeg"
+              alt="Food Store">
+          </div>
+          <div class="store-card">
+            <div class="store-name">Home Appliances</div>
+            <img
+              src="https://images.pexels.com/photos/2398375/pexels-photo-2398375.jpeg"
+              alt="Home Appliances Store">
+          </div>
+          <div class="store-card">
+            <div class="store-name">Grocery Mart</div>
+            <img src="https://images.pexels.com/photos/6941021/pexels-photo-6941021.jpeg" alt="Grocery Mart">
+          </div>
+
+          <div class="store-card">
+            <div class="store-name">Book Store</div>
+            <img src="https://images.pexels.com/photos/2553424/pexels-photo-2553424.jpeg" alt="Book Haven">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p class="mb-0">&copy; 2025 Sahaj ONDC. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Scroll Functionality -->
+  <script>
+    // Product Offers Scroll
+    const ProductOfferScrollContainer = document.getElementById("ProductOfferContainer");
+    document.getElementById("ProductOfferScrollLeft").onclick = () => {
+      ProductOfferScrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+    };
+    document.getElementById("ProductOfferScrollRight").onclick = () => {
+      ProductOfferScrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+    };
+
+    // Brand Section JS
+    const brandScrollContainer = document.getElementById("brandScroll");
+    document.getElementById("brandScrollLeft").onclick = () => {
+      brandScrollContainer.scrollBy({ left: -200, behavior: "smooth" });
+    };
+    document.getElementById("brandScrollRight").onclick = () => {
+      brandScrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+    };
+
+    // New Arrivals & Latest Launch JS
+    const scrollContainer = document.getElementById("productScroll");
+    document.getElementById("scrollLeft").onclick = () => {
+      scrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+    };
+    document.getElementById("scrollRight").onclick = () => {
+      scrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+    };
+
+    // Best Selling Section JS
+    const bestScrollContainer = document.getElementById("bestSellingScroll");
+    document.getElementById("bestScrollLeft").onclick = () => {
+      bestScrollContainer.scrollBy({ left: -300, behavior: "smooth" });
+    };
+    document.getElementById("bestScrollRight").onclick = () => {
+      bestScrollContainer.scrollBy({ left: 300, behavior: "smooth" });
+    };
+
+    // Discount Section JS
+    const DiscountStoreContainer = document.getElementById("DiscountStoreContainer");
+    document.getElementById("DiscountStoreScrollLeft").onclick = () => {
+      DiscountStoreContainer.scrollBy({ left: -250, behavior: "smooth" });
+    };
+    document.getElementById("DiscountStoreScrollRight").onclick = () => {
+      DiscountStoreContainer.scrollBy({ left: 250, behavior: "smooth" });
+    };
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
