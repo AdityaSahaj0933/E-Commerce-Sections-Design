@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahaj Bazaar | Interactive Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* ==============================
+        VARIABLES & BASE
+        ============================== */
+        :root {
+            --primary: #ff6b3c;
+            --secondary: #f59e0b;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fff8f5 0%, #fef3f1 100%);
+            color: var(--dark);
+            margin: 0;
+        }
+
+        /* ==============================
+        NAVIGATION
+        ============================== */
+        .modern-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+        }
+
+        .search-modern {
+            background: rgba(248, 250, 252, 0.9);
+            border: 2px solid rgba(255, 107, 60, 0.2);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-modern:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 60, 0.2);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ==============================
+        HERO SECTION
+        ============================== */
+        .hero-banner-modern {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 5rem 2rem;
+            color: white;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner-modern h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-banner-modern p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-hero {
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ==============================
+        SECTIONS
+        ============================== */
+        .section-modern {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            padding: 2rem;
+        }
+
+        .section-title-modern {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title-modern::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+
+        /* ==============================
+        PRODUCT CARDS
+        ============================== */
+        .product-card-modern {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            min-width: 260px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .product-card-modern:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-img-modern {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .product-tag-modern {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            z-index: 100;
+        }
+
+        .price-modern {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 0.35rem 0.6rem;
+        }
+
+        .badge-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-cta {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: all 0.25s ease-in-out;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        /* ==============================
+        BRAND CARDS
+        ============================== */
+        .brand-card-modern {
+            text-align: center;
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            min-width: 120px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .brand-card-modern:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-hover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+        }
+
+        .brand-card-modern:hover .brand-hover-overlay {
+            opacity: 1;
+        }
+
+        .btn-explore-modern {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
+        .btn-explore-modern:hover {
+            background: var(--secondary);
+        }
+
+        /* ==============================
+        SCROLL
+        ============================== */
+        .scroll-container-modern {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .scroll-container-modern::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll-btn-modern {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .scroll-btn-modern.left {
+            left: -20px;
+        }
+
+        .scroll-btn-modern.right {
+            right: -20px;
+        }
+
+        /* ==============================
+        FOOTER
+        ============================== */
+        .footer-modern {
+            background: linear-gradient(135deg, var(--dark), #0f172a);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .footer-modern a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ==============================
+        ENGAGEMENT MODAL
+        ============================== */
+        .modal-spin {
+            text-align: center;
+        }
+
+        .spin-wheel {
+            width: 250px;
+            height: 250px;
+            margin: 1rem auto;
+            border-radius: 50%;
+            border: 8px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spin-wheel div {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: var(--secondary);
+            top: 0;
+            left: 50%;
+            transform-origin: 0% 100%;
+        }
+
+        .spin-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg modern-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sahaj Bazaar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex mx-auto" style="flex: 0 1 500px;">
+                    <input class="form-control search-modern" type="search"
+                        placeholder="Search products, brands, categories...">
+                    <button class="btn btn-hero ms-2" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person"></i> Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cart3"></i> Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-banner-modern container">
+        <h1>Hot Deals & Trending Products!</h1>
+        <p>Grab the best offers before they're gone. Curated just for you.</p>
+        <button class="btn-hero">Shop Now</button>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section class="section-modern container position-relative">
+        <h2 class="section-title-modern">Best Sellers</h2>
+        <button class="scroll-btn-modern left" onclick="scrollLeft('bestSellers')"><i
+                class="bi bi-chevron-left"></i></button>
+        <button class="scroll-btn-modern right" onclick="scrollRight('bestSellers')"><i
+                class="bi bi-chevron-right"></i></button>
+
+        <div class="scroll-container-modern" id="bestSellers">
+            <!-- Product 1 -->
+            <div class="product-card-modern">
+                <div class="product-tag-modern">Top Selling</div>
+                <img src="https://images.unsplash.com/photo-1606813909016-4cf07b6cba58?auto=format&fit=crop&w=400&q=80"
+                    class="product-img-modern" alt="Product 1">
+                <div class="p-3">
+                    <h5>Premium Headphones</h5>
+                    <div class="price-modern">₹2,499 <span class="old-price">₹3,299</span></div>
+                    <div class="badge-row">
+                        <span class="badge badge-success">4.8 ★</span>
+                        <span class="badge badge-warning">Limited Offer</span>
+                    </div>
+                    <button class="btn-cta mt-2 w-100">Buy Now</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card-modern">
+                <div class="product-tag-modern">Hot</div>
+                <img src="https://images.unsplash.com/photo-1580910051078-7e0b11dc6232?auto=format&fit=crop&w=400&q=80"
+                    class="product-img-modern" alt="Product 2">
+                <div class="p-3">
+                    <h5>Smart Watch Series 7</h5>
+                    <div class="price-modern">₹9,999 <span class="old-price">₹12,499</span></div>
+                    <div class="badge-row">
+                        <span class="badge badge-success">4.6 ★</span>
+                        <span class="badge badge-warning">Best Seller</span>
+                    </div>
+                    <button class="btn-cta mt-2 w-100">Shop Now</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card-modern">
+                <div class="product-tag-modern">Trending</div>
+                <img src="https://images.unsplash.com/photo-1581092334525-c28c38e1a4cd?auto=format&fit=crop&w=400&q=80"
+                    class="product-img-modern" alt="Product 3">
+                <div class="p-3">
+                    <h5>Wireless Earbuds Pro</h5>
+                    <div class="price-modern">₹3,499 <span class="old-price">₹4,499</span></div>
+                    <div class="badge-row">
+                        <span class="badge badge-success">4.7 ★</span>
+                        <span class="badge badge-warning">Hot</span>
+                    </div>
+                    <button class="btn-cta mt-2 w-100">Buy Now</button>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card-modern">
+                <div class="product-tag-modern">Limited</div>
+                <img src="https://images.unsplash.com/photo-1580914847417-2c0d0dbd1b8b?auto=format&fit=crop&w=400&q=80"
+                    class="product-img-modern" alt="Product 4">
+                <div class="p-3">
+                    <h5>Fitness Tracker Pro</h5>
+                    <div class="price-modern">₹1,999 <span class="old-price">₹2,499</span></div>
+                    <div class="badge-row">
+                        <span class="badge badge-success">4.5 ★</span>
+                        <span class="badge badge-warning">Deal</span>
+                    </div>
+                    <button class="btn-cta mt-2 w-100">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="section-modern container">
+        <h2 class="section-title-modern">Top Brands</h2>
+        <div class="scroll-container-modern">
+            <div class="brand-card-modern">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Apple_logo_black.svg" alt="Apple"
+                    class="brand-logo">
+                <div class="brand-hover-overlay">
+                    <button class="btn-explore-modern">Explore</button>
+                </div>
+            </div>
+            <div class="brand-card-modern">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Samsung_Logo.svg" alt="Samsung"
+                    class="brand-logo">
+                <div class="brand-hover-overlay">
+                    <button class="btn-explore-modern">Explore</button>
+                </div>
+            </div>
+            <div class="brand-card-modern">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Mi-Logo.svg" alt="Mi"
+                    class="brand-logo">
+                <div class="brand-hover-overlay">
+                    <button class="btn-explore-modern">Explore</button>
+                </div>
+            </div>
+            <div class="brand-card-modern">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/HP_logo_2012.svg" alt="HP"
+                    class="brand-logo">
+                <div class="brand-hover-overlay">
+                    <button class="btn-explore-modern">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPIN & WIN ENGAGEMENT -->
+    <section class="section-modern container text-center">
+        <h2 class="section-title-modern">Spin & Win Offers</h2>
+        <p>Try your luck and win exciting discounts!</p>
+        <button class="spin-btn" onclick="alert('Congrats! You got 10% OFF on your next purchase!')">Spin Now 🎉
+        </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Sahaj Bazaar</h5>
+                    <p>Best deals on trending electronics and lifestyle products.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Top Brands</a></li>
+                        <li><a href="#">Offers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: support@sahajbazaar.com</p>
+                    <p>Phone: +91 9876543210</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollLeft(id) {
+            document.getElementById(id).scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollRight(id) {
+            document.getElementById(id).scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +16,14 @@
             --dark: #1e293b;
             --success: #10b981;
         }
-        
+
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             min-height: 100vh;
             color: var(--dark);
         }
-        
+
         /* Modern Navigation */
         .modern-nav {
             background: rgba(255, 255, 255, 0.95);
@@ -31,7 +32,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding: 1rem 0;
         }
-        
+
         .search-modern {
             background: rgba(248, 250, 252, 0.8);
             border: 2px solid rgba(37, 99, 235, 0.1);
@@ -39,12 +40,12 @@
             padding: 0.75rem 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .search-modern:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
+
         /* Section Styling */
         .section-modern {
             background: rgba(255, 255, 255, 0.9);
@@ -56,7 +57,7 @@
             overflow: hidden;
             padding: 2rem;
         }
-        
+
         .section-title-modern {
             font-weight: 700;
             color: var(--dark);
@@ -64,7 +65,7 @@
             position: relative;
             padding-left: 1rem;
         }
-        
+
         .section-title-modern::before {
             content: '';
             position: absolute;
@@ -75,7 +76,7 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: 4px;
         }
-        
+
         /* Brand Cards */
         .brand-card-modern {
             background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
@@ -87,19 +88,20 @@
             transition: all 0.3s ease;
             min-width: 120px;
         }
-        
+
         .brand-card-modern:hover {
-            transform: translateY(-8px);
+            transform: scale(1.02);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
         }
-        
+
         .brand-logo {
             width: 60px;
             height: 60px;
             object-fit: contain;
             margin: 0 auto 1rem;
         }
-        
+
         /* Product Cards */
         .product-card-modern {
             background: white;
@@ -110,20 +112,25 @@
             border: 1px solid rgba(255, 255, 255, 0.5);
             min-width: 280px;
         }
-        
+
         .product-card-modern:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
         }
-        
+
+        .product-card-modern:hover img {
+            transform: scale(1.04);
+            cursor: pointer;
+        }
+
         .product-img-modern {
             width: 100%;
             height: 200px;
             object-fit: contain;
             padding: 1rem;
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            transition: all 0.3s ease;
         }
-        
+
         .product-tag-modern {
             position: absolute;
             top: 1rem;
@@ -135,8 +142,9 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            z-index: 100;
         }
-        
+
         /* Scroll Containers */
         .scroll-container-modern {
             display: flex;
@@ -145,11 +153,11 @@
             padding: 1rem 0;
             scrollbar-width: none;
         }
-        
+
         .scroll-container-modern::-webkit-scrollbar {
             display: none;
         }
-        
+
         /* Scroll Buttons */
         .scroll-btn-modern {
             position: absolute;
@@ -169,21 +177,22 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-        
+
         .scroll-btn-modern:hover {
             background: white;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
             transform: translateY(-50%) scale(1.1);
+            cursor: pointer;
         }
-        
+
         .scroll-btn-modern.left {
             left: -22px;
         }
-        
+
         .scroll-btn-modern.right {
             right: -22px;
         }
-        
+
         /* Store Cards */
         .store-card-modern {
             background: white;
@@ -194,18 +203,19 @@
             min-width: 200px;
             position: relative;
         }
-        
+
         .store-card-modern:hover {
-            transform: translateY(-5px);
+            transform: scale(1.02);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
         }
-        
+
         .store-img-modern {
             width: 100%;
             height: 120px;
             object-fit: cover;
         }
-        
+
         .store-name-modern {
             position: absolute;
             bottom: 0;
@@ -216,20 +226,20 @@
             padding: 1rem;
             font-weight: 600;
         }
-        
+
         /* Price Styling */
         .price-modern {
-            color: var(--success);
+            color: #FF9900;
             font-weight: 700;
             font-size: 1.1rem;
         }
-        
+
         .old-price {
             color: var(--secondary);
             text-decoration: line-through;
             font-size: 0.9rem;
         }
-        
+
         /* Footer */
         .footer-modern {
             background: linear-gradient(135deg, var(--dark), #0f172a);
@@ -237,7 +247,7 @@
             padding: 3rem 0 2rem;
             margin-top: 4rem;
         }
-        
+
         /* Utility Classes */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -245,7 +255,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .btn-modern {
             background: linear-gradient(135deg, var(--primary), #3b82f6);
             border: none;
@@ -255,12 +265,13 @@
             padding: 0.75rem 1.5rem;
             transition: all 0.3s ease;
         }
-        
+
         .btn-modern:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            cursor: pointer;
         }
-        
+
         /* Hero Banner */
         .hero-banner-modern {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -272,7 +283,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero-banner-modern::before {
             content: '';
             position: absolute;
@@ -282,13 +293,145 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
         }
-        
+
         /* Container Wrapper for Scroll Sections */
         .scroll-section-wrapper {
             position: relative;
         }
+
+        /* 🔹 Product Badges Below Details */
+        .badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.6rem;
+            margin-top: 0.6rem;
+            flex-wrap: wrap;
+            /* keeps it responsive */
+        }
+
+        /* 🔹 Badge Styling */
+        .badge-row .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 0.35rem 0.6rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            letter-spacing: 0.2px;
+        }
+
+        /* 🔹 Compact CTA inside badge row (Enhanced Look) */
+        .btn-cta {
+            padding: 0.4rem 1rem;
+            font-size: 13.5px;
+            font-weight: 700;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35);
+            transition: all 0.25s ease-in-out;
+            white-space: nowrap;
+        }
+
+        .badge-row .btn-cta:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            box-shadow: 0 6px 14px rgba(239, 68, 68, 0.35);
+        }
+
+
+
+        /* Individual Badge Colors - keep theme harmony */
+        .badge-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--accent);
+            color: white;
+        }
+
+        .badge-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* 🔹 Top Selling Tag (Top-Left Corner) */
+        .product-top-tag {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            background: linear-gradient(135deg, var(--accent), #f97316);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 16px;
+            /* same as your .product-tag-modern */
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+            z-index: 100;
+        }
+
+        /* 🔹 Hover Overlay for Brand Cards */
+        .brand-card-modern {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 🔹 Brand Hover Overlay - Modern & Clean */
+        .brand-hover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            /* slightly lighter, more modern */
+            backdrop-filter: blur(4px);
+            /* subtle glassy effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            border-radius: 16px;
+        }
+
+        /* Show overlay on hover */
+        .brand-card-modern:hover .brand-hover-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn-explore-modern {
+            color: #fff;
+            /* White text */
+            background-color: #1D4ED8;
+            /* Bold Blue */
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        .btn-explore-modern {
+            color: #fff;
+            background-color: #F97316;
+            /* Orange */
+        }
+
+        .btn-explore-modern:hover {
+            background-color: #FB923C;
+            /* Lighter hover */
+        }
     </style>
 </head>
+
 <body>
     <!-- Modern Navigation -->
     <nav class="navbar navbar-expand-lg modern-nav">
@@ -299,7 +442,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <form class="search-form d-flex mx-auto" style="flex: 0 1 500px;">
-                    <input class="form-control search-modern" type="search" placeholder="Search for products, brands and more">
+                    <input class="form-control search-modern" type="search"
+                        placeholder="Search for products, brands and more">
                     <button class="btn btn-modern ms-2" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav ms-auto">
@@ -320,6 +464,7 @@
 
     <div class="container my-4">
 
+
         <!-- Product Offers & Deals Section -->
         <section class="section-modern">
             <h4 class="section-title-modern">🔥 Hot Deals & Offers</h4>
@@ -335,7 +480,8 @@
                     <div class="product-card-modern">
                         <div class="position-relative">
                             <span class="product-tag-modern">25% OFF</span>
-                            <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone" class="product-img-modern">
+                            <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Samsung Galaxy M14 5G</h6>
@@ -343,6 +489,13 @@
                                 ₹12,999 <span class="old-price">₹16,999</span>
                             </p>
                             <small class="text-muted">25% off • Free delivery</small>
+                            <!-- ✅ Badges Section Below -->
+                            <div class="badge-row">
+                                <span class="badge badge-success">★ 4.9 Rated</span>
+                                <button class="btn btn-cta">Buy Now</button>
+                            </div>
+
+
                         </div>
                     </div>
 
@@ -350,22 +503,33 @@
                     <div class="product-card-modern">
                         <div class="position-relative">
                             <span class="product-tag-modern">20% OFF</span>
-                            <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop" class="product-img-modern">
+                            <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop"
+                                class="product-img-modern" />
                         </div>
+
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">HP 15s Ryzen 5 Laptop</h6>
                             <p class="price-modern mb-1">
                                 ₹42,999 <span class="old-price">₹52,999</span>
                             </p>
-                            <small class="text-muted">20% off • EMI available</small>
+                            <small class="text-muted d-block mb-2">20% off • EMI available</small>
+
+                            <!-- ✅ Badges Section Below -->
+                            <div class="badge-row">
+                                <span class="badge badge-success">★ 4 Rated</span>
+                                <button class="btn btn-cta">Buy Now</button>
+                            </div>
                         </div>
                     </div>
+
+
 
                     <!-- Product 3 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
                             <span class="product-tag-modern">68% OFF</span>
-                            <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones" class="product-img-modern">
+                            <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">boAt Rockerz 450</h6>
@@ -373,6 +537,12 @@
                                 ₹1,299 <span class="old-price">₹3,999</span>
                             </p>
                             <small class="text-muted">68% off • Best seller</small>
+
+                            <!-- ✅ Badges Section Below -->
+                            <div class="badge-row">
+                                <span class="badge badge-success">★ 4.6 Rated</span>
+                                <button class="btn btn-cta">Buy Now</button>
+                            </div>
                         </div>
                     </div>
 
@@ -380,7 +550,8 @@
                     <div class="product-card-modern">
                         <div class="position-relative">
                             <span class="product-tag-modern">35% OFF</span>
-                            <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch" class="product-img-modern">
+                            <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Noise ColorFit Pro 4</h6>
@@ -388,6 +559,11 @@
                                 ₹3,999 <span class="old-price">₹6,999</span>
                             </p>
                             <small class="text-muted">35% off • Limited stock</small>
+                            <!-- ✅ Badges Section Below -->
+                            <div class="badge-row">
+                                <span class="badge badge-success">★ 3.5 Rated</span>
+                                <button class="btn btn-cta">Buy Now</button>
+                            </div>
                         </div>
                     </div>
 
@@ -395,7 +571,8 @@
                     <div class="product-card-modern">
                         <div class="position-relative">
                             <span class="product-tag-modern">40% OFF</span>
-                            <img src="https://images.pexels.com/photos/30670957/pexels-photo-30670957.jpeg" alt="Camera" class="product-img-modern">
+                            <img src="https://images.pexels.com/photos/30670957/pexels-photo-30670957.jpeg" alt="Camera"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Canon EOS 1500D</h6>
@@ -403,6 +580,11 @@
                                 ₹32,999 <span class="old-price">₹54,999</span>
                             </p>
                             <small class="text-muted">40% off • Free accessories</small>
+                            <!-- ✅ Badges Section Below -->
+                            <div class="badge-row">
+                                <span class="badge badge-success">★ 4.1 Rated</span>
+                                <button class="btn btn-cta">Buy Now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -421,58 +603,114 @@
                 </button>
                 <div class="scroll-container-modern" id="brandScroll">
                     <!-- Apple -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" class="brand-logo">
-                        <small class="fw-medium">Apple</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Apple</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Samsung -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg" alt="Samsung" class="brand-logo">
-                        <small class="fw-medium">Intel</small>
+                    <!-- Samsung / Intel -->
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg"
+                            alt="Intel" class="brand-logo">
+                        <small class="fw-medium d-block">Intel</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Sony -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony" class="brand-logo">
-                        <small class="fw-medium">Sony</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg" alt="Sony"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Sony</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Nike -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike" class="brand-logo">
-                        <small class="fw-medium">Nike</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Nike</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Adidas -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas" class="brand-logo">
-                        <small class="fw-medium">Adidas</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Adidas</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Microsoft -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft" class="brand-logo">
-                        <small class="fw-medium">Microsoft</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+                            alt="Microsoft" class="brand-logo">
+                        <small class="fw-medium d-block">Microsoft</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Dell -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell" class="brand-logo">
-                        <small class="fw-medium">Dell</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Dell_logo_2016.svg" alt="Dell"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Dell</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Google -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="HP" class="brand-logo">
-                        <small class="fw-medium">Google</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Google</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
+
                     <!-- Amazon -->
-                    <div class="brand-card-modern">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="HP" class="brand-logo">
-                        <small class="fw-medium">Amazon</small>
+                    <div class="brand-card-modern position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"
+                            class="brand-logo">
+                        <small class="fw-medium d-block">Amazon</small>
+                        <div class="brand-hover-overlay">
+                            <a href="#" class="btn btn-explore-modern">
+                                Explore <i class="bi bi-link-45deg ms-1"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -490,48 +728,86 @@
                     <!-- New Arrival 1 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern" style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
-                            <img src="https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg" alt="Smartwatch" class="product-img-modern">
+                            <span class="product-tag-modern"
+                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <img src="https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg" alt="Smartwatch"
+                                class="product-img-modern">
                         </div>
-                        <div class="p-3">
+                        <div class="p-3 d-flex flex-column justify-content-between">
                             <h6 class="fw-bold mb-2">Noise ColorFit Pulse 3</h6>
-                            <p class="price-modern mb-0">₹2,499</p>
+
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                </p>
+                                <button class="btn btn-cta">
+                                    Visit <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
+
 
                     <!-- New Arrival 2 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern" style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
-                            <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="T-shirt" class="product-img-modern">
+                            <span class="product-tag-modern"
+                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="T-shirt"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Men's Cotton T-Shirt</h6>
-                            <p class="price-modern mb-0">₹499</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                </p>
+                                <button class="btn btn-cta">
+                                    Visit <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- New Arrival 3 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern" style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
-                            <img src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg" alt="Perfume" class="product-img-modern">
+                            <span class="product-tag-modern"
+                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <img src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg" alt="Perfume"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Skinn by Titan Raw</h6>
-                            <p class="price-modern mb-0">₹1,199</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                </p>
+                                <button class="btn btn-cta">
+                                    Visit <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- New Arrival 4 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern" style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
-                            <img src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg" alt="Cookware" class="product-img-modern">
+                            <span class="product-tag-modern"
+                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <img src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg" alt="Cookware"
+                                class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Prestige Cookware Set</h6>
-                            <p class="price-modern mb-0">₹2,899</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                </p>
+                                <button class="btn btn-cta">
+                                    Visit <i class="bi bi-arrow-right ms-1"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -550,38 +826,85 @@
                 </button>
                 <div class="scroll-container-modern" id="bestSellingScroll">
                     <!-- Best Seller 1 -->
-                    <div class="product-card-modern">
-                        <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone" class="product-img-modern">
+                    <div class="product-card-modern position-relative">
+                        <!-- 🔹 Top Left Tag -->
+                        <span class="product-top-tag">🔥 Top Selling</span>
+
+                        <img src="https://m.media-amazon.com/images/I/71hIfcIPyxS._SL1500_.jpg" alt="Smartphone"
+                            class="product-img-modern" />
+
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Samsung Galaxy 5G</h6>
-                            <p class="price-modern mb-0">₹12,999</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    ₹2,499
+                                </p>
+                                <button class="btn btn-cta mt-2">
+                                    Explore More
+
+                                </button>
+                            </div>
                         </div>
                     </div>
 
+
                     <!-- Best Seller 2 -->
                     <div class="product-card-modern">
-                        <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop" class="product-img-modern">
+
+                        <img src="https://m.media-amazon.com/images/I/71Zf9uUp+GL._SL1500_.jpg" alt="Laptop"
+                            class="product-img-modern">
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">HP 15s Ryzen 5 Laptop</h6>
-                            <p class="price-modern mb-0">₹42,999</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    ₹2,499
+                                </p>
+                                <button class="btn btn-cta mt-2">
+                                    Explore More
+
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Best Seller 3 -->
-                    <div class="product-card-modern">
-                        <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones" class="product-img-modern">
+
+                    <div class="product-card-modern position-relative">
+                        <!-- 🔹 Top Left Tag -->
+                        <span class="product-top-tag">🔥 Top Selling</span>
+
+                        <img src="https://m.media-amazon.com/images/I/51Zymoq7UnL._SL1200_.jpg" alt="Headphones"
+                            class="product-img-modern">
+
                         <div class="p-3">
-                            <h6 class="fw-bold mb-2">boAt Rockerz 450</h6>
-                            <p class="price-modern mb-0">₹1,299</p>
+                            <h6 class="fw-bold mb-2">Samsung Galaxy 5G</h6>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    ₹2,499
+                                </p>
+                                <button class="btn btn-cta mt-2">
+                                    Explore More
+
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Best Seller 4 -->
                     <div class="product-card-modern">
-                        <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch" class="product-img-modern">
+                        <img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SL1500_.jpg" alt="Smart Watch"
+                            class="product-img-modern">
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Noise ColorFit Pro 4</h6>
-                            <p class="price-modern mb-0">₹3,999</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <p class="price-modern mb-0">
+                                    ₹2,499
+                                </p>
+                                <button class="btn btn-cta mt-2">
+                                    Explore More
+
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -601,31 +924,36 @@
                 <div class="scroll-container-modern" id="discountStoreScroll">
                     <!-- Store 1 -->
                     <div class="store-card-modern">
-                        <img src="https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg" alt="Clothing Store" class="store-img-modern">
+                        <img src="https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg" alt="Clothing Store"
+                            class="store-img-modern">
                         <div class="store-name-modern">Fashion Hub</div>
                     </div>
 
                     <!-- Store 2 -->
                     <div class="store-card-modern">
-                        <img src="https://images.pexels.com/photos/3619918/pexels-photo-3619918.jpeg" alt="Electronics Store" class="store-img-modern">
+                        <img src="https://images.pexels.com/photos/3619918/pexels-photo-3619918.jpeg"
+                            alt="Electronics Store" class="store-img-modern">
                         <div class="store-name-modern">Tech Galaxy</div>
                     </div>
 
                     <!-- Store 3 -->
                     <div class="store-card-modern">
-                        <img src="https://images.pexels.com/photos/30688912/pexels-photo-30688912.jpeg" alt="Food Store" class="store-img-modern">
+                        <img src="https://images.pexels.com/photos/30688912/pexels-photo-30688912.jpeg" alt="Food Store"
+                            class="store-img-modern">
                         <div class="store-name-modern">Fresh Mart</div>
                     </div>
 
                     <!-- Store 4 -->
                     <div class="store-card-modern">
-                        <img src="https://images.pexels.com/photos/2398375/pexels-photo-2398375.jpeg" alt="Home Appliances" class="store-img-modern">
+                        <img src="https://images.pexels.com/photos/2398375/pexels-photo-2398375.jpeg"
+                            alt="Home Appliances" class="store-img-modern">
                         <div class="store-name-modern">Home Comforts</div>
                     </div>
 
                     <!-- Store 5 -->
                     <div class="store-card-modern">
-                        <img src="https://images.pexels.com/photos/2553424/pexels-photo-2553424.jpeg" alt="Book Store" class="store-img-modern">
+                        <img src="https://images.pexels.com/photos/2553424/pexels-photo-2553424.jpeg" alt="Book Store"
+                            class="store-img-modern">
                         <div class="store-name-modern">Book Haven</div>
                     </div>
                 </div>
@@ -713,4 +1041,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
