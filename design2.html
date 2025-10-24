@@ -135,7 +135,7 @@
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: linear-gradient(135deg, var(--accent), #f97316);
+            background: linear-gradient(135deg, #2874F0, #0056D2);
             color: white;
             font-size: 0.75rem;
             font-weight: 700;
@@ -231,7 +231,7 @@
         .price-modern {
             color: #FF9900;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
         }
 
         .old-price {
@@ -328,7 +328,7 @@
             border-radius: 10px;
             border: none;
             color: #fff;
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            background: linear-gradient(135deg, #ef4444, #ef4444);
             box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35);
             transition: all 0.25s ease-in-out;
             white-space: nowrap;
@@ -363,7 +363,7 @@
             position: absolute;
             top: 3px;
             left: 3px;
-            background: linear-gradient(135deg, var(--accent), #f97316);
+            background: linear-gradient(135deg, #2874F0, #0056D2);
             color: white;
             font-size: 12px;
             font-weight: 700;
@@ -430,6 +430,34 @@
             /* Lighter hover */
         }
     </style>
+    <style>
+        .deal-star-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90px;
+            height: 90px;
+            background: url('https://retail.sahaj.co.in/documents/20126/171725591/images-removebg-preview.png/40d54c44-5d1c-0214-5016-dcbce4c6ddf8?t=1761298673210') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: #111827;
+            z-index: 1000;
+            padding: 8px;
+        }
+
+        .deal-star-badge p {
+            margin: 0;
+            line-height: 1.1;
+        }
+        .deal-star-badge span {
+            font-size: 18px;display: inline-block; /* Required for margin/padding to work on inline elements */
+    margin-top: 3px;
+        }
+    </style>
 </head>
 
 <body>
@@ -467,7 +495,7 @@
 
         <!-- Product Offers & Deals Section -->
         <section class="section-modern">
-            <h4 class="section-title-modern">🔥 Hot Deals & Offers</h4>
+            <h4 class="section-title-modern">🔥 Mega Deals</h4>
             <div class="scroll-section-wrapper">
                 <button class="scroll-btn-modern left" id="ProductOfferScrollLeft">
                     <i class="bi bi-chevron-left"></i>
@@ -593,7 +621,7 @@
 
         <!-- Brand Stores Section -->
         <section class="section-modern">
-            <h4 class="section-title-modern">🏪 Popular Brand Stores</h4>
+            <h4 class="section-title-modern">🏪 Popular Brands</h4>
             <div class="scroll-section-wrapper">
                 <button class="scroll-btn-modern left" id="brandScrollLeft">
                     <i class="bi bi-chevron-left"></i>
@@ -716,7 +744,7 @@
 
         <!-- New Arrivals Section -->
         <section class="section-modern">
-            <h4 class="section-title-modern">🆕 New Arrivals</h4>
+            <h4 class="section-title-modern">🆕 Latest Collection & Trends </h4>
             <div class="scroll-section-wrapper">
                 <button class="scroll-btn-modern left" id="newArrivalsScrollLeft">
                     <i class="bi bi-chevron-left"></i>
@@ -728,17 +756,21 @@
                     <!-- New Arrival 1 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern"
-                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <!-- 🌟 Star Badge -->
+                            <div class="deal-star-badge">
+                                <p>Starting<br><span>1,299</span></p>
+                            </div>
+
                             <img src="https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg" alt="Smartwatch"
-                                class="product-img-modern">
+                                class="product-img-modern" style="width: 100%; border-radius: 8px;" />
                         </div>
+
                         <div class="p-3 d-flex flex-column justify-content-between">
                             <h6 class="fw-bold mb-2">Noise ColorFit Pulse 3</h6>
 
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <p class="price-modern mb-0">
-                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                    <span style="font-size: 14px; color: #64748b;">Special Offer</span>
                                 </p>
                                 <button class="btn btn-cta">
                                     Visit <i class="bi bi-arrow-right ms-1"></i>
@@ -748,19 +780,23 @@
                     </div>
 
 
+
+
                     <!-- New Arrival 2 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern"
-                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <!-- 🌟 Star Badge -->
+                            <div class="deal-star-badge">
+                                <p>Starting<br><span>₹1,299</span></p>
+                            </div>
                             <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg" alt="T-shirt"
                                 class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Men's Cotton T-Shirt</h6>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                        <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <p class="price-modern mb-0">
-                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                    <span style="font-size: 14px; color: #64748b;">Special Offer</span>
                                 </p>
                                 <button class="btn btn-cta">
                                     Visit <i class="bi bi-arrow-right ms-1"></i>
@@ -772,16 +808,18 @@
                     <!-- New Arrival 3 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern"
-                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <!-- 🌟 Star Badge -->
+                            <div class="deal-star-badge">
+                                <p>Starting<br><span>999 </span> ₹</p>
+                            </div>
                             <img src="https://images.pexels.com/photos/2036646/pexels-photo-2036646.jpeg" alt="Perfume"
                                 class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Skinn by Titan Raw</h6>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                        <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <p class="price-modern mb-0">
-                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                    <span style="font-size: 14px; color: #64748b;">Special Offer</span>
                                 </p>
                                 <button class="btn btn-cta">
                                     Visit <i class="bi bi-arrow-right ms-1"></i>
@@ -793,16 +831,18 @@
                     <!-- New Arrival 4 -->
                     <div class="product-card-modern">
                         <div class="position-relative">
-                            <span class="product-tag-modern"
-                                style="background: linear-gradient(135deg, #ef4444, #dc2626);">NEW</span>
+                            <!-- 🌟 Star Badge -->
+                            <div class="deal-star-badge">
+                                <p>Starting<br><span>9999</span> ₹</p>
+                            </div>
                             <img src="https://images.pexels.com/photos/276452/pexels-photo-276452.jpeg" alt="Cookware"
                                 class="product-img-modern">
                         </div>
                         <div class="p-3">
                             <h6 class="fw-bold mb-2">Prestige Cookware Set</h6>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                        <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <p class="price-modern mb-0">
-                                    <span style="font-size: 14px; color: #64748b;">Start From - </span>₹2,499
+                                    <span style="font-size: 14px; color: #64748b;">Special Offer</span>
                                 </p>
                                 <button class="btn btn-cta">
                                     Visit <i class="bi bi-arrow-right ms-1"></i>
@@ -816,7 +856,7 @@
 
         <!-- Best Selling Section -->
         <section class="section-modern">
-            <h4 class="section-title-modern">🏆 Best Sellers</h4>
+            <h4 class="section-title-modern">🏆 Best Seller</h4>
             <div class="scroll-section-wrapper">
                 <button class="scroll-btn-modern left" id="bestSellingScrollLeft">
                     <i class="bi bi-chevron-left"></i>
@@ -840,8 +880,7 @@
                                     ₹2,499
                                 </p>
                                 <button class="btn btn-cta mt-2">
-                                    Explore More
-
+                                    View Details
                                 </button>
                             </div>
                         </div>
@@ -860,7 +899,7 @@
                                     ₹2,499
                                 </p>
                                 <button class="btn btn-cta mt-2">
-                                    Explore More
+                                    View Details
 
                                 </button>
                             </div>
@@ -883,7 +922,7 @@
                                     ₹2,499
                                 </p>
                                 <button class="btn btn-cta mt-2">
-                                    Explore More
+                                    View Details
 
                                 </button>
                             </div>
@@ -901,7 +940,7 @@
                                     ₹2,499
                                 </p>
                                 <button class="btn btn-cta mt-2">
-                                    Explore More
+                                    View Details
 
                                 </button>
                             </div>
@@ -913,7 +952,7 @@
 
         <!-- Discount Stores Section -->
         <section class="section-modern">
-            <h4 class="section-title-modern">💰 Discount Stores</h4>
+            <h4 class="section-title-modern">💰 Great Savings</h4>
             <div class="scroll-section-wrapper">
                 <button class="scroll-btn-modern left" id="discountStoreScrollLeft">
                     <i class="bi bi-chevron-left"></i>
